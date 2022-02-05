@@ -1,0 +1,13 @@
+#questPaper {
+  border: 1px solid black;
+  float: left;
+  margin: 5px;
+}
+
+#questTitle {
+  margin: 5px;
+}
+
+#questDiscription {
+  margin: 5px;
+}
