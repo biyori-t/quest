@@ -11,8 +11,10 @@ pingButton.addEventListener('click', async () => {
 
 const questBoard = document.getElementById('questBoard');
 
-const postQuest = name => {
-  console.log(`Posted: ${name}`);
+const postQuest = quest => {
+  console.log(`Posted: ${quest.name}`);
+  const questWindow = window.open('quest.html', '', 'width=300, height=120');
+  questWindow.quest = quest;
 };
 
 let count = 1;
@@ -30,8 +32,7 @@ addQuestButton.addEventListener('click', async () => {
   // 実体化してからイベント登録する必要がある
   const postQuestButton = questPaper.getElementById('postQuestButton');
   postQuestButton.addEventListener('click', () => {
-    console.log('Clicked');
-    postQuest(title);
+    postQuest({ title, discription });
   });
 
   questBoard.appendChild(questPaper);
