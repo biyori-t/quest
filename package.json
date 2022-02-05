@@ -1,0 +1,11 @@
+{
+  "name": "quest",
+  "version": "0.0.1",
+  "description": "クエスト風に作業の管理ができるTODOアプリ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Takuro Toji",
+  "license": "Apache-2.0"
+}
