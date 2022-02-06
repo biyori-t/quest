@@ -1,5 +1,6 @@
 let questId = 1; // クエストのID
 let questCount = 1; // クエストの数
+const childrenWindow = []; // 開いている子ウィンドウの配列
 
 const pingButton = document.getElementById('pingButton');
 pingButton.addEventListener('click', async () => {
@@ -18,6 +19,16 @@ const totalScoreText = document.getElementById('totalScore');
 reportButton.addEventListener('click', async () => {
   const result = await window.questApi.report();
   totalScoreText.textContent = result.totalScore;
+
+  // 報告したクエストのウィンドウは閉じる
+  result.achievedIds.forEach(id => {
+    const foundIndex = childrenWindow.findIndex(window => window.quest.id === id);
+    if (foundIndex < 0) {
+      return;
+    }
+    childrenWindow[foundIndex].close();
+    childrenWindow.splice(foundIndex, 1);
+  });
 });
 
 // クエストの一覧を表示する場所
@@ -31,6 +42,8 @@ const postQuest = async quest => {
   const questWindow = window.open('quest.html', '', 'width=300, height=160');
   questWindow.quest = postedQuest;
   questId += 1;
+
+  childrenWindow.push(questWindow);
 };
 
 // クエストを追加するボタン

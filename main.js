@@ -56,10 +56,10 @@ const createWindow = () => {
 
   // 達成したクエストを報告する
   ipcMain.handle('report', async event => {
-    const totalScore = postedQuests
-      .filter(quest => quest.done)
-      .reduce((sum, current) => sum + evaluate(current), 0);
-    return { totalScore };
+    const achievedList = postedQuests.filter(quest => quest.done);
+    const totalScore = achievedList.reduce((sum, current) => sum + evaluate(current), 0);
+
+    return { totalScore, achievedIds: achievedList.map(achieved => achieved.id) };
   });
 
   // デバッグ用
