@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld('questApi', {
     ipcRenderer.invoke('ping', { ping: `Ping: ${message}`, message }),
   post: async quest => ipcRenderer.invoke('post', quest),
   achieve: async achieved => ipcRenderer.invoke('achieve', achieved),
+  report: async () => ipcRenderer.invoke('report'),
 });

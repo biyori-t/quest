@@ -12,8 +12,18 @@ pingButton.addEventListener('click', async () => {
   }
 });
 
+// 完了したクエストを報告するボタン
+const reportButton = document.getElementById('reportButton');
+const totalScoreText = document.getElementById('totalScore');
+reportButton.addEventListener('click', async () => {
+  const result = await window.questApi.report();
+  totalScoreText.textContent = result.totalScore;
+});
+
+// クエストの一覧を表示する場所
 const questBoard = document.getElementById('questBoard');
 
+// クエストを受注する
 const postQuest = async quest => {
   const postedQuest = { id: questId, ...quest };
   console.log(`Posted: `, postedQuest);
@@ -23,8 +33,8 @@ const postQuest = async quest => {
   questId += 1;
 };
 
+// クエストを追加するボタン
 const addQuestButton = document.getElementById('addQuestButton');
-// クエストを追加する処理
 addQuestButton.addEventListener('click', async () => {
   const id = questCount;
   const title = `Quest ${questCount}`;

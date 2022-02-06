@@ -3,6 +3,23 @@ const path = require('path');
 
 const postedQuests = [];
 
+function evaluate(quest) {
+  switch (quest.score) {
+    case 'S':
+      return 1.2;
+    case 'A':
+      return 1.0;
+    case 'B':
+      return 0.8;
+    case 'C':
+      return 0.6;
+    case 'D':
+      return 0.5;
+    default:
+      return 0;
+  }
+}
+
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 600,
@@ -35,6 +52,14 @@ const createWindow = () => {
     found.done = achieved.done;
     found.score = achieved.score;
     console.log(postedQuests);
+  });
+
+  // 達成したクエストを報告する
+  ipcMain.handle('report', async event => {
+    const totalScore = postedQuests
+      .filter(quest => quest.done)
+      .reduce((sum, current) => sum + evaluate(current), 0);
+    return { totalScore };
   });
 
   // デバッグ用
