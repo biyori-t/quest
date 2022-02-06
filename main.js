@@ -25,7 +25,14 @@ const createWindow = () => {
     if (args.id == null) {
       return;
     }
-    postedQuests.push(args);
+    postedQuests.push({ ...args, done: false });
+    console.log(postedQuests);
+  });
+
+  // クエストを達成する
+  ipcMain.handle('achieve', async (event, achieved) => {
+    const found = postedQuests.find(quest => quest.id === achieved.id);
+    found.done = achieved.done;
     console.log(postedQuests);
   });
 

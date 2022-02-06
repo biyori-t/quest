@@ -18,7 +18,7 @@ const postQuest = async quest => {
   const postedQuest = { id: questId, ...quest };
   console.log(`Posted: `, postedQuest);
   const result = await window.questApi.post(postedQuest);
-  const questWindow = window.open('quest.html', '', 'width=300, height=120');
+  const questWindow = window.open('quest.html', '', 'width=300, height=160');
   questWindow.quest = postedQuest;
   questId += 1;
 };
@@ -44,4 +44,14 @@ addQuestButton.addEventListener('click', async () => {
   questBoard.appendChild(questPaper);
 
   questCount += 1;
+});
+
+// 子ウィンドウのメッセージを受け取る
+window.addEventListener('message', async event => {
+  console.log(event.data);
+  if (event.data.key === 'Achieve') {
+    const result = await window.questApi.achieve(event.data.achieved);
+  } else {
+    console.warn('Invalid message: ', event.data.key);
+  }
 });
