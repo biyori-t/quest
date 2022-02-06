@@ -33,6 +33,7 @@ const createWindow = () => {
   ipcMain.handle('achieve', async (event, achieved) => {
     const found = postedQuests.find(quest => quest.id === achieved.id);
     found.done = achieved.done;
+    found.score = achieved.score;
     console.log(postedQuests);
   });
 
