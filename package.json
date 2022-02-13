@@ -2,7 +2,7 @@
   "name": "quest",
   "version": "0.0.1",
   "description": "クエスト風に作業の管理ができるTODOアプリ",
-  "main": "main.js",
+  "main": "./src/main.js",
   "scripts": {
     "start": "electron .",
     "test": "jest"

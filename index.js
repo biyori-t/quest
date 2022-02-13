@@ -1,6 +1,7 @@
 let questId = 1; // クエストのID
 let questCount = 1; // クエストの数
 const childrenWindow = []; // 開いている子ウィンドウの配列
+const QuestHtmlPath = './src/quest/quest.html';
 
 const pingButton = document.getElementById('pingButton');
 pingButton.addEventListener('click', async () => {
@@ -39,7 +40,7 @@ const postQuest = async quest => {
   const postedQuest = { id: questId, ...quest };
   console.log(`Posted: `, postedQuest);
   const result = await window.questApi.post(postedQuest);
-  const questWindow = window.open('quest.html', '', 'width=300, height=160');
+  const questWindow = window.open(QuestHtmlPath, '', 'width=300, height=160');
   questWindow.quest = postedQuest;
   questId += 1;
 
