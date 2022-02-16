@@ -5,7 +5,9 @@
   "main": "./src/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "jest"
+    "test": "jest",
+    "build": "npm run build:renderer",
+    "build:renderer": "cd src/renderer && ng build --base-href ./"
   },
   "author": "Takuro Toji",
   "license": "Apache-2.0",

@@ -66,7 +66,7 @@ const createWindow = () => {
   mainWindow.webContents.openDevTools({ mode: 'detach' });
 
   // 画面読み込み開始
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile('./dist/index.html');
 };
 
 app.once('ready', () => {
