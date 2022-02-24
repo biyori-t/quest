@@ -1,25 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render, screen, fireEvent } from '@testing-library/angular';
 import { QuestBoardComponent } from './quest-board.component';
-
 describe('QuestBoardComponent', () => {
-  let component: QuestBoardComponent;
-  let fixture: ComponentFixture<QuestBoardComponent>;
+  test('should render counter', async () => {
+    await render(QuestBoardComponent, {
+      componentProperties: { counter: 5 },
+    });
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ QuestBoardComponent ]
-    })
-    .compileComponents();
+    expect(screen.getByText('Current Count: 5')).toBeInTheDocument();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(QuestBoardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  test('should increment the counter on click', async () => {
+    await render(QuestBoardComponent, {
+      componentProperties: { counter: 5 },
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    fireEvent.click(screen.getByText('+'));
+
+    expect(screen.getByText('Current Count: 6')).toBeInTheDocument();
   });
 });
