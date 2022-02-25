@@ -1,3 +1,6 @@
-<button (click)="decrement()">-</button>
-<span data-testid="count">Current Count: {{ counter }}</span>
-<button (click)="increment()">+</button>
+<div>
+  <h1>クエストボード</h1>
+  <ul data-testid="quest-list">
+    <app-quest-paper role="listitem" *ngFor="let quest of quests"></app-quest-paper>
+  </ul>
+</div>

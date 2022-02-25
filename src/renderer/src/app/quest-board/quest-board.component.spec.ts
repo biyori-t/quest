@@ -1,21 +1,29 @@
-import { render, screen, fireEvent } from '@testing-library/angular';
+import { render, screen, within } from '@testing-library/angular';
+import { QuestPaperComponent } from '../quest-paper/quest-paper.component';
 import { QuestBoardComponent } from './quest-board.component';
 describe('QuestBoardComponent', () => {
-  test('should render counter', async () => {
+  test('クエストボードには、タイトルが表示される', async () => {
     await render(QuestBoardComponent, {
-      componentProperties: { counter: 5 },
+      componentProperties: {
+        quests: [],
+      },
+      declarations: [QuestPaperComponent],
     });
 
-    expect(screen.getByText('Current Count: 5')).toBeInTheDocument();
+    expect(screen.getByText('クエストボード')).toBeInTheDocument();
   });
 
-  test('should increment the counter on click', async () => {
+  test('クエストボードには、クエストの一覧が表示される', async () => {
     await render(QuestBoardComponent, {
-      componentProperties: { counter: 5 },
+      componentProperties: {
+        quests: [{ title: 'Quest1' }],
+      },
+      declarations: [QuestPaperComponent],
     });
 
-    fireEvent.click(screen.getByText('+'));
+    const { getAllByRole } = within(screen.getByTestId('quest-list'));
+    const quests = getAllByRole('listitem');
 
-    expect(screen.getByText('Current Count: 6')).toBeInTheDocument();
+    expect(quests).toHaveLength(1);
   });
 });
