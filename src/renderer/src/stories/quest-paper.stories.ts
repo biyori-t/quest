@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { QuestPaperComponent } from 'src/app/quest-paper/quest-paper.component';
 
@@ -7,7 +8,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [QuestPaperComponent],
-      imports: [CommonModule],
+      imports: [CommonModule, FlexLayoutModule],
       providers: [],
     }),
   ],

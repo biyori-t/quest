@@ -1,7 +1,12 @@
 <h1>{{ title }}</h1>
-<div>
-  <div>報酬:</div>
-  <div>{{ reward }}</div>
-  <div>{{ details }}</div>
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <div fxLayout="column" fxLayoutAlign="space-between">
+    <div>報酬:</div>
+    <div>{{ reward }}</div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div>期限:</div>
+    <div>{{ details }}</div>
+  </div>
 </div>
 <div>{{ deadline }}</div>
