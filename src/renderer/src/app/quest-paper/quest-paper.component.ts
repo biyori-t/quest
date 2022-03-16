@@ -7,9 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class QuestPaperComponent implements OnInit {
   @Input() title: string = 'No Title';
+  @Input() emoji: string = "🧡";
   @Input() reward: number = 0;
-  @Input() details: string = '';
-  @Input() deadline: Date | null = null;
+  @Input() tasks: string[] = [];
 
   constructor() {}
 
