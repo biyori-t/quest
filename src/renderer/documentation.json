@@ -70,7 +70,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"content\">\r\n  <span>renderer app is running!</span>\r\n</div>\r\n<button id=\"pingButton\" (click)=\"ping()\">Ping</button>\r\n<app-quest-board></app-quest-board>"
+            "templateData": "<div class=\"content\">\n  <span>renderer app is running!</span>\n</div>\n<button id=\"pingButton\" (click)=\"ping()\">Ping</button>\n<app-quest-board></app-quest-board>"
         },
         {
             "name": "QuestBoardComponent",
@@ -146,7 +146,7 @@
         },
         {
             "name": "QuestPaperComponent",
-            "id": "component-QuestPaperComponent-84d4920120936d815844b96b44e6a6ef2250e066c9afcb2c171254bce981dd7cff9f82e9007032161df202e351d6542452159a1243ffe870c299441385cc51cf",
+            "id": "component-QuestPaperComponent-6e732ad2177168b9f0981827696a403aaea7e0910148f98991613dd4a262cc641470404e6c9f32a55933788b3ce5dde78eda4ac74777cfa55722cb0e4b5b7373",
             "file": "src/app/quest-paper/quest-paper.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -164,20 +164,11 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "deadline",
-                    "defaultValue": "null",
+                    "name": "emoji",
+                    "defaultValue": "\"🧡\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
-                    "type": "Date | null",
-                    "decorators": []
-                },
-                {
-                    "name": "details",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 11,
+                    "line": 10,
                     "type": "string",
                     "decorators": []
                 },
@@ -186,8 +177,17 @@
                     "defaultValue": "0",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "tasks",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string[]",
                     "decorators": []
                 },
                 {
@@ -221,11 +221,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-quest-paper',\n  templateUrl: './quest-paper.component.html',\n  styleUrls: ['./quest-paper.component.scss'],\n})\nexport class QuestPaperComponent implements OnInit {\n  @Input() title: string = 'No Title';\n  @Input() reward: number = 0;\n  @Input() details: string = '';\n  @Input() deadline: Date | null = null;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-quest-paper',\n  templateUrl: './quest-paper.component.html',\n  styleUrls: ['./quest-paper.component.scss'],\n})\nexport class QuestPaperComponent implements OnInit {\n  @Input() title: string = 'No Title';\n  @Input() emoji: string = \"🧡\";\n  @Input() reward: number = 0;\n  @Input() tasks: string[] = [];\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "\n.header {\n  text-align: center;\n}\n\n.title {\n  margin: 0;\n}\n\n.title-emoji {\n  margin: 0;\n}\n\n.border {\n  border: solid #7f7f7f;\n  border-radius: 8px;\n}\n",
                     "styleUrl": "./quest-paper.component.scss"
                 }
             ],
@@ -241,19 +241,19 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1>{{ title }}</h1>\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between\">\n  <div fxLayout=\"row\" fxLayoutAlign=\"space-between\">\n    <div>報酬:</div>\n    <div>{{ reward }}</div>\n  </div>\n\n  <div>{{ details }}</div>\n</div>\n<div>{{ deadline }}</div>\n"
+            "templateData": "<div class=\"header\">\n  <h1 class=\"title\"> <| {{ title }} |></h1>\n  <h1 class=\"title-emoji\">\n    <span class=\"border\">{{emoji}}</span>\n  </h1>\n</div>\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between\">\n  <div fxLayout=\"column\" fxLayoutAlign=\"space-between\">\n    <div>報酬:</div>\n    <div>{{ reward }}</div>\n  </div>\n  <div fxLayout=\"row\" fxLayoutAlign=\"space-between\">\n  </div>\n  <ul>\n    <li *ngFor=\"let task of tasks\">{{task}}</li>\n  </ul>\n\n</div>\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-a2e46804ce489579117c031467fc85f613d872c84c365de980b88d1b793354b1b9561b0039cfcce3afed122ee7a75a835c7412d7e4d6ee86cd064af30c48402e",
+            "id": "module-AppModule-c4c47dd3e234d4147671917fda847ada33fb28455290d26cd78dfae26b17b74ab588920ba702bfa9cbc02476415535500b6c5a9c5ad529af30554ade2355e22d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { QuestBoardComponent } from './quest-board/quest-board.component';\nimport { QuestPaperComponent } from './quest-paper/quest-paper.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    QuestBoardComponent,\n    QuestPaperComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FlexLayoutModule } from '@angular/flex-layout';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { QuestBoardComponent } from './quest-board/quest-board.component';\nimport { QuestPaperComponent } from './quest-paper/quest-paper.component';\n\n@NgModule({\n  declarations: [AppComponent, QuestBoardComponent, QuestPaperComponent],\n  imports: [BrowserModule, FlexLayoutModule, AppRoutingModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -352,21 +352,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Template",
@@ -376,7 +376,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<QuestPaperComponent>",
-                "defaultValue": "(args) => ({\n  props: {\n    ...args,\n  },\n})"
+                "defaultValue": "(args) => ({\n  props: {\n    ...args\n  },\n})"
             }
         ],
         "functions": [],
@@ -402,19 +402,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<QuestPaperComponent>",
-                    "defaultValue": "(args) => ({\n  props: {\n    ...args,\n  },\n})"
-                }
-            ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "(args) => ({\n  props: {\n    ...args\n  },\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -427,6 +415,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },
