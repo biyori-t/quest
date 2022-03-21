@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestBoardComponent } from './quest-board/quest-board.component';
 import { QuestPaperComponent } from './quest-paper/quest-paper.component';
+import { QuestSymbolComponent } from './quest-paper/quest-symbol/quest-symbol.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestBoardComponent, QuestPaperComponent],
+  declarations: [AppComponent, QuestBoardComponent, QuestPaperComponent, QuestSymbolComponent],
   imports: [BrowserModule, FlexLayoutModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

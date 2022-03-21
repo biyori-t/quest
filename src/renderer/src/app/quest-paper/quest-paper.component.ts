@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {QuestPaper} from "./quest-paper";
+
 
 @Component({
   selector: 'app-quest-paper',
@@ -6,10 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./quest-paper.component.scss'],
 })
 export class QuestPaperComponent implements OnInit {
-  @Input() title: string = 'No Title';
-  @Input() emoji: string = "🧡";
-  @Input() reward: number = 0;
-  @Input() tasks: string[] = [];
+  @Input() questPaper?: QuestPaper;
 
   constructor() {}
 

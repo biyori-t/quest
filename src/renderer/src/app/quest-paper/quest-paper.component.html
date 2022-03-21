@@ -1,19 +1,15 @@
 <div class="header">
-  <h1 class="title"> <| {{ title }} |></h1>
-  <h1 class="title-emoji">
-    <span class="border">{{emoji}}</span>
-  </h1>
+  <h1 class="title"><| {{ questPaper?.title }} |></h1>
+  <app-quest-symbol [symbol]="questPaper?.symbol"></app-quest-symbol>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-between">
   <div fxLayout="column" fxLayoutAlign="space-between">
     <div>報酬:</div>
-    <div>{{ reward }}</div>
+    <div>{{ questPaper?.reward }}</div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-between">
-  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between"></div>
   <ul>
-    <li *ngFor="let task of tasks">{{task}}</li>
+    <li *ngFor="let task of questPaper?.todos">{{ task }}</li>
   </ul>
-
 </div>
