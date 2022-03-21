@@ -5,3 +5,13 @@ export interface QuestPaper {
   todos: string[];
   details: string;
 }
+
+export function initQuestPaper() {
+  return {
+    title: '',
+    symbol: '',
+    reward: 0,
+    todos: new Array<string>(),
+    details: '',
+  };
+}

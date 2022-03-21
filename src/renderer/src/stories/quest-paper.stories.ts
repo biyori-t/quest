@@ -2,13 +2,18 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { QuestPaperComponent } from 'src/app/quest-paper/quest-paper.component';
+import { QuestRewardComponent } from 'src/app/quest-paper/quest-reward/quest-reward.component';
 import { QuestSymbolComponent } from 'src/app/quest-paper/quest-symbol/quest-symbol.component';
 
 export default {
   component: QuestPaperComponent,
   decorators: [
     moduleMetadata({
-      declarations: [QuestPaperComponent, QuestSymbolComponent],
+      declarations: [
+        QuestPaperComponent,
+        QuestSymbolComponent,
+        QuestRewardComponent,
+      ],
       imports: [CommonModule, FlexLayoutModule],
       providers: [],
     }),
