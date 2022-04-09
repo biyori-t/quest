@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { QuestPaper } from '../quest-paper/quest-paper';
 
 @Component({
   selector: 'app-quest-board',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./quest-board.component.scss'],
 })
 export class QuestBoardComponent implements OnInit {
-  @Input() quests: any[] = [];
+  @Input() questPapers: QuestPaper[] = [];
 
   constructor() {}
 

@@ -11,7 +11,14 @@ import { QuestRewardComponent } from './quest-paper/quest-reward/quest-reward.co
 import { QuestTodoListComponent } from './quest-paper/quest-todo-list/quest-todo-list.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestBoardComponent, QuestPaperComponent, QuestSymbolComponent, QuestRewardComponent, QuestTodoListComponent],
+  declarations: [
+    AppComponent,
+    QuestBoardComponent,
+    QuestPaperComponent,
+    QuestSymbolComponent,
+    QuestRewardComponent,
+    QuestTodoListComponent,
+  ],
   imports: [BrowserModule, FlexLayoutModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

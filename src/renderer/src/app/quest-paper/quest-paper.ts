@@ -8,12 +8,12 @@ export interface QuestPaper {
   details: string;
 }
 
-export function initQuestPaper(): QuestPaper {
+export function initQuestPaper(option?: Partial<QuestPaper>): QuestPaper {
   return {
-    title: '',
-    symbol: '',
-    reward: 0,
-    todos: [],
-    details: '',
+    title: option?.title == null ? '' : option.title,
+    symbol: option?.symbol == null ? '' : option.symbol,
+    reward: option?.reward == null ? 0 : option.reward,
+    todos: option?.todos == null ? [] : option.todos,
+    details: option?.details == null ? '' : option.details,
   };
 }
