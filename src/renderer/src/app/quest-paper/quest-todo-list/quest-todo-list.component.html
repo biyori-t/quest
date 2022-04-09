@@ -1,0 +1,8 @@
+<div class="root" fxLayout="column" fxLayoutAlign="space">
+  <div fxLayoutAlign="center">
+    <div class="title">達成条件</div>
+  </div>
+  <ul class="todo-list">
+    <li class="todo" *ngFor="let todo of todos">{{ todo.title }}</li>
+  </ul>
+</div>

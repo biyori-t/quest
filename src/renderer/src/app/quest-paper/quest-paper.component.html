@@ -6,8 +6,6 @@
 
   <div fxLayout="column" fxLayoutAlign="space-between">
     <app-quest-reward [reward]="questPaper.reward"></app-quest-reward>
-    <ul>
-      <li *ngFor="let task of questPaper.todos">{{ task }}</li>
-    </ul>
+    <app-quest-todo-list [todos]="questPaper.todos"></app-quest-todo-list>
   </div>
 </div>
