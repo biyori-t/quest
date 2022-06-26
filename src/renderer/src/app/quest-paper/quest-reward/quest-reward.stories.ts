@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { QuestRewardComponent } from 'src/app/quest-paper/quest-reward/quest-reward.component';
-import { StoryUtils } from './utils';
+import { StoryUtils } from '../../../stories/utils';
 
 export default {
   component: QuestRewardComponent,

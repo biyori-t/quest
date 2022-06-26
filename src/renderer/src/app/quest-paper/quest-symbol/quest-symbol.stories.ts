@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { QuestSymbolComponent } from '../app/quest-paper/quest-symbol/quest-symbol.component';
+import { QuestSymbolComponent } from './quest-symbol.component';
 
 export default {
   component: QuestSymbolComponent,
