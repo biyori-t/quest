@@ -1,28 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { QuestModule } from '../../quest.module';
 import { QuestTaskListComponent } from './quest-task-list.component';
 
 export default {
+  title: 'Quest/QuestTaskList',
   component: QuestTaskListComponent,
   decorators: [
     moduleMetadata({
-      declarations: [QuestTaskListComponent],
-      imports: [CommonModule],
-      providers: [],
+      imports: [QuestModule],
     }),
   ],
-  title: 'QuestTodoList',
 } as Meta;
 
-const Template: Story<QuestTaskListComponent> = (args) => ({
-  props: {
-    ...args,
+export const Default: StoryObj<QuestTaskListComponent> = {
+  args: {
+    tasks: [{ title: 'Todo 1' }, { title: 'Todo 2' }, { title: 'Todo 3' }],
   },
-});
-
-export const Default = Template.bind({});
-Default.args = {
-  tasks: [{ title: 'Todo 1' }, { title: 'Todo 2' }, { title: 'Todo 3' }],
 };
-
-export const Empty = Template.bind({});

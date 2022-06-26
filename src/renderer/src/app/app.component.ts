@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { initQuestPaper, QuestPaper } from './quest/quest-paper/quest-paper';
+import { initQuestPaper, QuestPaper } from './quest/models/quest-paper';
 
 @Component({
   selector: 'app-root',

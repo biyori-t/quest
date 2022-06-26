@@ -1,39 +1,33 @@
-import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { QuestRewardComponent } from './quest-reward.component';
 import { StoryUtils } from '../../../../stories/utils';
+import { QuestModule } from '../../quest.module';
 
 export default {
+  title: 'Quest/QuestReward',
   component: QuestRewardComponent,
   decorators: [
     moduleMetadata({
-      declarations: [QuestRewardComponent],
-      imports: [CommonModule, FlexLayoutModule],
-      providers: [],
+      imports: [QuestModule],
     }),
     StoryUtils.wrapOnQuestPaper(),
   ],
-  title: 'QuestReward',
 } as Meta;
 
-const Template: Story<QuestRewardComponent> = (args) => ({
-  props: {
-    ...args,
+export const Default: StoryObj<QuestRewardComponent> = {
+  args: {
+    reward: 88888,
   },
-});
-
-export const Default = Template.bind({});
-Default.args = {
-  reward: 88888,
 };
 
-export const MaxReward = Template.bind({});
-MaxReward.args = {
-  reward: 999999,
+export const MaxReward: StoryObj<QuestRewardComponent> = {
+  args: {
+    reward: 999999,
+  },
 };
 
-export const MinReward = Template.bind({});
-MinReward.args = {
-  reward: 0,
+export const MinReward: StoryObj<QuestRewardComponent> = {
+  args: {
+    reward: 0,
+  },
 };

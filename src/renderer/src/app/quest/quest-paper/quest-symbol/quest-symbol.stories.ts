@@ -1,28 +1,19 @@
-import { CommonModule } from '@angular/common';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
+import { QuestModule } from '../../quest.module';
 import { QuestSymbolComponent } from './quest-symbol.component';
 
 export default {
+  title: 'Quest/QuestSymbol',
   component: QuestSymbolComponent,
   decorators: [
     moduleMetadata({
-      declarations: [QuestSymbolComponent],
-      imports: [CommonModule],
-      providers: [],
+      imports: [QuestModule],
     }),
   ],
-  title: 'QuestSymbol',
 } as Meta;
 
-const Template: Story<QuestSymbolComponent> = (args) => ({
-  props: {
-    ...args,
+export const Default: StoryObj<QuestSymbolComponent> = {
+  args: {
+    symbol: '🍤',
   },
-});
-
-export const Default = Template.bind({});
-Default.args = {
-  symbol: '🍤',
 };
-
-export const Empty = Template.bind({});
