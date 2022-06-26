@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
+const url = require('url');
 
 const postedQuests = [];
 
@@ -66,7 +67,8 @@ const createWindow = () => {
   mainWindow.webContents.openDevTools({ mode: 'detach' });
 
   // 画面読み込み開始
-  mainWindow.loadFile('./dist/index.html');
+  // mainWindow.loadURL(path.join('file:', __dirname, 'dist', 'index.html'));
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
 };
 
 app.once('ready', () => {
