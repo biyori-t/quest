@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { QuestTaskListComponent } from 'src/app/quest-paper/quest-task-list/quest-task-list.component';
+import { QuestTaskListComponent } from './quest-task-list.component';
 
 export default {
   component: QuestTaskListComponent,
