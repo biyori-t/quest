@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { QuestTask } from '../quest-task';
+import { QuestTask } from '../../models/quest-task';
 
 @Component({
   selector: 'app-quest-task-list',

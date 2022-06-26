@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { QuestPaper } from '../quest-paper/quest-paper';
+import { QuestPaper } from '../models/quest-paper';
 
 @Component({
   selector: 'app-quest-board',
