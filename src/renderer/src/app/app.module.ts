@@ -8,7 +8,7 @@ import { QuestBoardComponent } from './quest-board/quest-board.component';
 import { QuestPaperComponent } from './quest-paper/quest-paper.component';
 import { QuestSymbolComponent } from './quest-paper/quest-symbol/quest-symbol.component';
 import { QuestRewardComponent } from './quest-paper/quest-reward/quest-reward.component';
-import { QuestTodoListComponent } from './quest-paper/quest-todo-list/quest-todo-list.component';
+import { QuestTaskListComponent } from './quest-paper/quest-task-list/quest-task-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { QuestTodoListComponent } from './quest-paper/quest-todo-list/quest-todo
     QuestPaperComponent,
     QuestSymbolComponent,
     QuestRewardComponent,
-    QuestTodoListComponent,
+    QuestTaskListComponent,
   ],
   imports: [BrowserModule, FlexLayoutModule, AppRoutingModule],
   providers: [],

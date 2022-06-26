@@ -1,10 +1,8 @@
-<div>
-  <h1>クエストボード</h1>
-  <ul data-testid="quest-list">
-    <app-quest-paper
-      role="listitem"
-      *ngFor="let questPaper of questPapers"
-      [questPaper]="questPaper"
-    ></app-quest-paper>
-  </ul>
-</div>
+<h1>クエストボード</h1>
+<ul data-testid="quest-list">
+  <app-quest-paper
+    role="listitem"
+    *ngFor="let questPaper of questPapers"
+    [questPaper]="questPaper"
+  ></app-quest-paper>
+</ul>

@@ -1,10 +1,10 @@
-import { QuestTodo } from './todo';
+import { QuestTask } from './quest-task';
 
 export interface QuestPaper {
   title: string;
   symbol: string;
   reward: number;
-  todos: QuestTodo[];
+  tasks: QuestTask[];
   details: string;
 }
 
@@ -13,7 +13,7 @@ export function initQuestPaper(option?: Partial<QuestPaper>): QuestPaper {
     title: option?.title == null ? '' : option.title,
     symbol: option?.symbol == null ? '' : option.symbol,
     reward: option?.reward == null ? 0 : option.reward,
-    todos: option?.todos == null ? [] : option.todos,
+    tasks: option?.tasks == null ? [] : option.tasks,
     details: option?.details == null ? '' : option.details,
   };
 }

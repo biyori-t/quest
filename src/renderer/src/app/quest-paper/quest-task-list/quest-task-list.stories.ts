@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { QuestTodoListComponent } from 'src/app/quest-paper/quest-todo-list/quest-todo-list.component';
+import { QuestTaskListComponent } from 'src/app/quest-paper/quest-task-list/quest-task-list.component';
 
 export default {
-  component: QuestTodoListComponent,
+  component: QuestTaskListComponent,
   decorators: [
     moduleMetadata({
-      declarations: [QuestTodoListComponent],
+      declarations: [QuestTaskListComponent],
       imports: [CommonModule],
       providers: [],
     }),
@@ -14,7 +14,7 @@ export default {
   title: 'QuestTodoList',
 } as Meta;
 
-const Template: Story<QuestTodoListComponent> = (args) => ({
+const Template: Story<QuestTaskListComponent> = (args) => ({
   props: {
     ...args,
   },
@@ -22,7 +22,7 @@ const Template: Story<QuestTodoListComponent> = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  todos: [{ title: 'Todo 1' }, { title: 'Todo 2' }, { title: 'Todo 3' }],
+  tasks: [{ title: 'Todo 1' }, { title: 'Todo 2' }, { title: 'Todo 3' }],
 };
 
 export const Empty = Template.bind({});
