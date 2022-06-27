@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { initQuestPaper, QuestPaper } from './quest/models/quest-paper';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { QuestPaper } from './quest/models/quest-paper';
+import { QuestState } from './states/quest.state';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +12,10 @@ import { initQuestPaper, QuestPaper } from './quest/models/quest-paper';
 export class AppComponent {
   title = 'renderer';
 
-  questPapers: QuestPaper[] = [
-    initQuestPaper({
-      title: 'Quest 1',
-      tasks: [{ title: 'A-1' }, { title: 'A-2' }],
-      reward: 10000,
-      symbol: '🍳',
-    }),
-    initQuestPaper({
-      title: 'Quest 2',
-      tasks: [{ title: 'B-1' }],
-      reward: 88888,
-      symbol: '🥐',
-    }),
-    initQuestPaper({
-      title: 'Quest 3',
-      tasks: [{ title: 'C-1' }, { title: 'C-2' }, { title: 'C-3' }],
-      reward: 900,
-      symbol: '🌓',
-    }),
-  ];
+  @Select(QuestState)
+  questPapers$!: Observable<QuestPaper[]>;
+
+  constructor() {}
 
   async ping() {
     const sendMessage = 'Test Message';

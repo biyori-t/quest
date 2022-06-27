@@ -2,4 +2,6 @@
   <span>renderer app is running!</span>
 </div>
 <button id="pingButton" (click)="ping()">Ping</button>
-<app-quest-board [questPapers]="questPapers"></app-quest-board>
+<ng-container *ngIf="questPapers$ | async as questPapers">
+  <app-quest-board [questPapers]="questPapers"></app-quest-board>
+</ng-container>
