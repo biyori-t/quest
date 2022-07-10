@@ -1,4 +1,4 @@
 import { app } from 'electron';
-import { SampleApp } from './electron-app';
+import { QuestApp } from './quest-app';
 
-const MyApp: SampleApp = new SampleApp(app);
+const questApp = new QuestApp(app);

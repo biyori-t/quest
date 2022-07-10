@@ -20,7 +20,7 @@ function evaluate(quest: any) {
   }
 }
 
-export class SampleApp {
+export class QuestApp {
   private mainWindow: BrowserWindow | null = null;
   private app: App;
   private mainURL: string = `file://${__dirname}/index.html`;
@@ -88,7 +88,7 @@ export class SampleApp {
 
     // デバッグ用
     this.mainWindow.webContents.openDevTools({ mode: 'detach' });
-    this.mainWindow.loadURL(`file://${__dirname}/index.html`);
+    this.mainWindow.loadURL(this.mainURL);
   }
 
   private onReady() {
