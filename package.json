@@ -2,19 +2,25 @@
   "name": "quest",
   "version": "0.0.1",
   "description": "クエスト風に作業の管理ができるTODOアプリ",
-  "main": "./src/main.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "electron .",
     "test": "jest",
     "build": "npm run build:renderer",
     "build:renderer": "cd src/renderer && ng build --base-href ./"
   },
-  "author": "Takuro Toji",
+  "author": "biyori-t",
   "license": "Apache-2.0",
+  "dependencies": {
+    "electron": "^19.0.8"
+  },
   "devDependencies": {
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.2",
-    "electron": "^17.0.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   }
 }
