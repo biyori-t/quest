@@ -3,9 +3,9 @@ const path = require('path');
 var main = {
   mode: 'development',
   target: 'electron-main',
-  entry: path.join(__dirname, 'src', 'main', 'index'),
+  entry: path.join(__dirname, 'src', 'main', 'main'),
   output: {
-    filename: 'index.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
   node: {
